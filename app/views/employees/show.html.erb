@@ -1,0 +1,15 @@
+First Name: 
+<%= @employee.first_name %><br>
+Last Name:
+<%= @employee.last_name %><br>
+Alias:
+<%= @employee.alias %><br>
+Title:
+<%= @employee.title %><br>
+Office:
+<%= @employee.office %><br>
+
+
+<h3>DANGER!!!</h3>
+<%= button_to "Delete", employee_path(@employee), method: 'delete' %>
+

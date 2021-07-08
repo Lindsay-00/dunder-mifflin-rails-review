@@ -1,0 +1,29 @@
+<h1>Create a New Employee</h1>
+
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_with model: @employee do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br>
+  <%= f.label :alias %>
+  <%= f.text_field :alias %><br>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+  <%= f.label :office %>
+  <%= f.text_field :office %><br>
+
+
+  <br>
+  <h3>Select a Dog</h3>
+  <%= f.collection_select(:dog_id, Dog.all, :id, :name, prompt: true) %>
+  <br><br>
+  <%= f.submit "Create Employee" %>
+<% end %>
